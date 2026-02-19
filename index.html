@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saumya | BCA Portfolio</title>
+    <style>
+        :root {
+            --beige-bg: #fcfaf2; /* Lightest beige */
+            --soft-tan: #f2e8cf; /* Medium beige */
+            --warm-nude: #e7d8c9;
+            --deep-brown: #432818; /* Dark brown for text */
+            --accent-gold: #bc6c25; /* Earthy gold */
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--beige-bg);
+            color: var(--deep-brown);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: rgba(242, 232, 207, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--warm-nude);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
+        .nav-links { list-style: none; display: flex; gap: 2rem; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--deep-brown);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            width: 0; height: 2px;
+            background: var(--accent-gold);
+            position: absolute; bottom: -5px; left: 0;
+            transition: 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Home Section */
+        #home {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .intro-h1 { font-size: 4rem; margin-bottom: 10px; }
+        .tagline { 
+            font-size: 1.3rem; 
+            background: var(--warm-nude); 
+            padding: 5px 20px; 
+            border-radius: 50px;
+            margin-bottom: 25px;
+        }
+        
+        .motto-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 20px;
+            max-width: 650px;
+            border: 1px solid var(--warm-nude);
+            box-shadow: 10px 10px 0px var(--soft-tan);
+            margin-top: 30px;
+        }
+
+        /* Skills & Education Grid */
+        #skills { background: var(--soft-tan); }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 25px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        .edu-item { margin-bottom: 15px; border-bottom: 1px solid var(--beige-bg); padding-bottom: 10px; }
+        .skill-tag {
+            display: inline-block;
+            background: var(--beige-bg);
+            padding: 8px 18px;
+            border-radius: 50px;
+            margin: 5px;
+            font-size: 0.9rem;
+            border: 1px solid var(--warm-nude);
+            transition: 0.3s;
+        }
+        .skill-tag:hover { background: var(--accent-gold); color: white; }
+
+        /* Participation */
+        .timeline { max-width: 800px; margin: 0 auto; }
+        .event {
+            background: var(--white);
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 8px solid var(--accent-gold);
+        }
+
+        /* Contact Form */
+        #contact form { max-width: 600px; margin: 0 auto; }
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--warm-nude);
+            background: var(--white);
+            outline: none;
+        }
+        .btn {
+            background: var(--deep-brown);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover { background: var(--accent-gold); letter-spacing: 1px; }
+
+        footer { text-align: center; padding: 50px; color: #888; font-size: 0.9rem; }
+
+        @media (max-width: 768px) { .intro-h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SAUMYA</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#participation">Participation</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="reveal">
+            <h1 class="intro-h1">Namaste, I'm Saumya.</h1>
+            <p class="tagline">BCA 2nd Year | Banasthali Vidyapith</p>
+            <p style="font-size: 1.1rem;">A tech enthusiast from <strong>Bihar</strong>, dedicated to continuous growth and logical excellence.</p>
+            
+            <div class="motto-card">
+                <p><strong>Words I Live By:</strong> "Success isn't about being the best; it's about being better than you were yesterday. Your background doesn't define your future—your hard work does."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 style="text-align: center; margin-bottom: 50px;" class="reveal">The Academic Journey</h2>
+        <div class="grid-container">
+            <div class="card reveal">
+                <h3>Education</h3>
+                <div class="edu-item" style="margin-top: 20px;">
+                    <strong>BCA (Bachelor of Computer Applications)</strong>
+                    <p>Banasthali Vidyapith (Ongoing)</p>
+                </div>
+                <div class="edu-item">
+                    <strong>Class 12th</strong>
+                    <p>Aggregating 64%</p>
+                </div>
+                <div class="edu-item">
+                    <strong>Class 10th</strong>
+                    <p>Completed with 92%</p>
+                </div>
+            </div>
+
+            <div class="card reveal">
+                <h3>Technical Arsenal</h3>
+                <p style="margin-bottom: 20px;">Languages & Technologies I focus on:</p>
+                <div class="skills-flex">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">DSA</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">OOPs</span>
+                    <span class="skill-tag">Logical Thinking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="participation">
+        <h2 style="text-align: center; margin-bottom: 50px;" class="reveal">Experience & Learning</h2>
+        <div class="timeline">
+            <div class="event reveal">
+                <strong>Microsoft Ideathon</strong>
+                <p>Collaborated on innovative ideas to solve real-world problems using tech stacks.</p>
+            </div>
+            <div class="event reveal">
+                <strong>AI Pre-Summit</strong>
+                <p>Attended insights on how AI is reshaping the global industry standards.</p>
+            </div>
+            <div class="event reveal">
+                <strong>Workshop: Code to AI</strong>
+                <p>Successfully completed training on bridging traditional code with AI capabilities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background: var(--white);">
+        <div class="reveal" style="text-align: center;">
+            <h2>Get In Touch</h2>
+            <p style="margin-bottom: 30px;">I'm open to collaborations and learning opportunities!</p>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <textarea rows="5" placeholder="Let's talk about tech..."></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>Saumya | 2026 Portfolio</p>
+    </footer>
+
+    <script>
+        // Transition / Reveal on Scroll Script
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+
+        // Run once on load to show elements already in view
+        window.onload = reveal;
+    </script>
+</body>
+</html>
